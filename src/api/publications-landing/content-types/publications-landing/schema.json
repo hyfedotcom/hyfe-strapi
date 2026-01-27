@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "publications_landings",
+  "info": {
+    "singularName": "publications-landing",
+    "pluralName": "publications-landings",
+    "displayName": "publications-landing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "default": "resource-landing",
+      "required": true
+    }
+  }
+}

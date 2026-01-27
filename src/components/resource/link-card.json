@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_resource_link_cards",
+  "info": {
+    "displayName": "link_card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "insights",
+        "publications",
+        "white-papers",
+        "news",
+        "cough-news"
+      ]
+    }
+  },
+  "config": {}
+}

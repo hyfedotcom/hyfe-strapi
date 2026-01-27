@@ -1,0 +1,96 @@
+{
+  "collectionName": "components_resource_resource_cards",
+  "info": {
+    "displayName": "resource_card"
+  },
+  "options": {},
+  "attributes": {
+    "resource_type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "insights",
+        "publications",
+        "white-papers",
+        "news",
+        "cough-news"
+      ]
+    },
+    "insight": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::insight.insight",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "resource_type"
+            },
+            "insights"
+          ]
+        }
+      }
+    },
+    "publication": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::publication.publication",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "resource_type"
+            },
+            "publications"
+          ]
+        }
+      }
+    },
+    "news": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::news-item.news-item",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "resource_type"
+            },
+            "news"
+          ]
+        }
+      }
+    },
+    "white_papers": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::white-paper.white-paper",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "resource_type"
+            },
+            "white-papers"
+          ]
+        }
+      }
+    },
+    "cough_news": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cough-news-item.cough-news-item",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "resource_type"
+            },
+            "cough-news"
+          ]
+        }
+      }
+    }
+  },
+  "config": {}
+}

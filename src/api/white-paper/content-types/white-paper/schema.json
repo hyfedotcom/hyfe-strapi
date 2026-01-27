@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "white_papers",
+  "info": {
+    "singularName": "white-paper",
+    "pluralName": "white-papers",
+    "displayName": "White papers"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "resource.rich-text",
+        "resource.related-resources",
+        "resource.image",
+        "resource.cta",
+        "resource.quote",
+        "resource.video",
+        "resource.additional-info"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "default": "white-papers",
+      "regex": "white-papers"
+    }
+  }
+}

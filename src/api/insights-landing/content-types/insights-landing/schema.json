@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "insights_landings",
+  "info": {
+    "singularName": "insights-landing",
+    "pluralName": "insights-landings",
+    "displayName": "insights-landing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

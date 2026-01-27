@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_products_cards",
+  "info": {
+    "displayName": "products_cards"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "ui.card-product",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

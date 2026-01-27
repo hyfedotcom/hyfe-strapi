@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_landings",
+  "info": {
+    "singularName": "news-landing",
+    "pluralName": "news-landings",
+    "displayName": "news-landing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "default": "resource-landing"
+    }
+  }
+}

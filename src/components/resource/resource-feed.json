@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_resource_resource_feeds",
+  "info": {
+    "displayName": "resource_feed"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "resource.resource-cards-many",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

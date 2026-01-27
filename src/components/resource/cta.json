@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_resource_ctas",
+  "info": {
+    "displayName": "cta"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "cta": {
+      "type": "component",
+      "component": "resource.cta-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

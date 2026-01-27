@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_resource_related_resources",
+  "info": {
+    "displayName": "related_resources"
+  },
+  "options": {},
+  "attributes": {
+    "auto_mode": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "title": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "auto_mode"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "paragraph": {
+      "type": "text",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "auto_mode"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "cards": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "auto_mode"
+            },
+            true
+          ]
+        }
+      },
+      "component": "resource.resource-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

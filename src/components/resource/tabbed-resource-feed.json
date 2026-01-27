@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_resource_tabbed_resource_feeds",
+  "info": {
+    "displayName": "tabbed_resource_feed"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "resource.resource-cards-many",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

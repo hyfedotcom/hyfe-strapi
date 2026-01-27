@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_feature_cards_rights",
+  "info": {
+    "displayName": "feature_cards_right"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false,
+      "required": true
+    },
+    "cards": {
+      "type": "component",
+      "component": "ui.card",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

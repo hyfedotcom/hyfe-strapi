@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_hero_stats",
+  "info": {
+    "displayName": "hero_stats"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text",
+      "required": true
+    },
+    "ctas": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true,
+      "required": true
+    },
+    "stats": {
+      "type": "component",
+      "component": "ui.stat",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

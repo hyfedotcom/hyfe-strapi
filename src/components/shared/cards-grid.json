@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_cards_grids",
+  "info": {
+    "displayName": "cards_grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "ctas": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true,
+      "min": 0,
+      "max": 2
+    },
+    "cards": {
+      "type": "component",
+      "component": "ui.card",
+      "repeatable": true,
+      "required": true,
+      "min": 3
+    }
+  },
+  "config": {}
+}

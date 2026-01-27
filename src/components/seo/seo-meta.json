@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_seo_seo_metas",
+  "info": {
+    "displayName": "seo-meta"
+  },
+  "options": {},
+  "attributes": {
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "string"
+    },
+    "meta_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "meta_robots": {
+      "type": "string"
+    },
+    "canonical_URL": {
+      "type": "string"
+    },
+    "structured_data": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}

@@ -862,6 +862,43 @@ export interface ApiScienceAndResearchResourceScienceAndResearchResource
   };
 }
 
+export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
+  collectionName: 'solutions';
+  info: {
+    displayName: 'Solutions ';
+    pluralName: 'solutions';
+    singularName: 'solution';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::solution.solution'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'shared.partners',
+        'shared.feature-cards-right',
+        'shared.cta',
+        'shared.cards-grid',
+      ]
+    >;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
@@ -1501,6 +1538,7 @@ declare module '@strapi/strapi' {
       'api::publication.publication': ApiPublicationPublication;
       'api::publications-landing.publications-landing': ApiPublicationsLandingPublicationsLanding;
       'api::science-and-research-resource.science-and-research-resource': ApiScienceAndResearchResourceScienceAndResearchResource;
+      'api::solution.solution': ApiSolutionSolution;
       'api::tag.tag': ApiTagTag;
       'api::white-paper.white-paper': ApiWhitePaperWhitePaper;
       'api::white-papers-landing.white-papers-landing': ApiWhitePapersLandingWhitePapersLanding;

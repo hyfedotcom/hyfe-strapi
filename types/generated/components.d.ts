@@ -144,17 +144,6 @@ export interface ResourceResourceCard extends Struct.ComponentSchema {
   };
 }
 
-export interface ResourceResourceFeed extends Struct.ComponentSchema {
-  collectionName: 'components_resource_resource_feeds';
-  info: {
-    displayName: 'resource_feed';
-  };
-  attributes: {
-    paragraph: Schema.Attribute.Text;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface ResourceRichText extends Struct.ComponentSchema {
   collectionName: 'components_resource_rich_texts';
   info: {
@@ -511,7 +500,6 @@ declare module '@strapi/strapi' {
       'resource.quote': ResourceQuote;
       'resource.related-resources': ResourceRelatedResources;
       'resource.resource-card': ResourceResourceCard;
-      'resource.resource-feed': ResourceResourceFeed;
       'resource.rich-text': ResourceRichText;
       'resource.subscription-form': ResourceSubscriptionForm;
       'resource.tabbed-resource-feed': ResourceTabbedResourceFeed;

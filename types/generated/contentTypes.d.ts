@@ -453,7 +453,6 @@ export interface ApiCompanyResourceCompanyResource
       Schema.Attribute.Private;
     paragraph: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.DynamicZone<['resource.resource-feed']>;
     seo: Schema.Attribute.Component<'seo.seo-meta', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -853,7 +852,6 @@ export interface ApiScienceAndResearchResourceScienceAndResearchResource
       Schema.Attribute.Private;
     paragraph: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.DynamicZone<['resource.resource-feed']>;
     seo: Schema.Attribute.Component<'seo.seo-meta', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;

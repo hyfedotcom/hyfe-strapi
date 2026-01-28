@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_problem_insight_solutions",
+  "info": {
+    "displayName": "problem-insight-solution"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "problem": {
+      "type": "component",
+      "component": "ui.problem-card",
+      "repeatable": true,
+      "required": true,
+      "min": 1,
+      "max": 3
+    },
+    "insight": {
+      "type": "component",
+      "component": "ui.insight-card",
+      "repeatable": true,
+      "required": true,
+      "min": 1,
+      "max": 2
+    },
+    "solution": {
+      "type": "component",
+      "component": "ui.solution-card",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

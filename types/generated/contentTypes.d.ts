@@ -865,7 +865,7 @@ export interface ApiScienceAndResearchResourceScienceAndResearchResource
 export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
   collectionName: 'solutions';
   info: {
-    displayName: 'Solutions ';
+    displayName: 'Solutions';
     pluralName: 'solutions';
     singularName: 'solution';
   };
@@ -890,8 +890,13 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
         'shared.feature-cards-right',
         'shared.cta',
         'shared.cards-grid',
+        'shared.content-image-split',
+        'shared.accordion',
+        'shared.problem-insight-solution',
       ]
     >;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

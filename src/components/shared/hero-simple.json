@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_hero_simples",
+  "info": {
+    "displayName": "hero-simple"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "ctas": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

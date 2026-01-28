@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_ui_paragraphs",
+  "info": {
+    "displayName": "paragraph"
+  },
+  "options": {},
+  "attributes": {
+    "paragraph": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

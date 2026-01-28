@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_ui_insight_cards",
+  "info": {
+    "displayName": "insight_card"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

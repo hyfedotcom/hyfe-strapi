@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_shared_content_image_splits",
+  "info": {
+    "displayName": "content-image-split"
+  },
+  "options": {},
+  "attributes": {
+    "variant": {
+      "type": "enumeration",
+      "required": true,
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "component",
+      "component": "ui.paragraph",
+      "repeatable": true,
+      "required": true,
+      "max": 3
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

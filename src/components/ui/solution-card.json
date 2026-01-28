@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_ui_solution_cards",
+  "info": {
+    "displayName": "solution_card"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "cta": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -242,6 +242,26 @@ export interface SeoSeoMeta extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedAccordion extends Struct.ComponentSchema {
+  collectionName: 'components_shared_accordions';
+  info: {
+    displayName: 'accordion';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'ui.card', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 2;
+        },
+        number
+      >;
+    ctas: Schema.Attribute.Component<'ui.button', true>;
+    paragraph: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedCardsGrid extends Struct.ComponentSchema {
   collectionName: 'components_shared_cards_grids';
   info: {
@@ -266,6 +286,29 @@ export interface SharedCardsGrid extends Struct.ComponentSchema {
       >;
     paragraph: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedContentImageSplit extends Struct.ComponentSchema {
+  collectionName: 'components_shared_content_image_splits';
+  info: {
+    displayName: 'content-image-split';
+  };
+  attributes: {
+    content: Schema.Attribute.Component<'ui.paragraph', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    variant: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'left'>;
   };
 }
 
@@ -296,6 +339,18 @@ export interface SharedFeatureCardsRight extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedHeroSimple extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hero_simples';
+  info: {
+    displayName: 'hero-simple';
+  };
+  attributes: {
+    ctas: Schema.Attribute.Component<'ui.button', true>;
+    paragraph: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedHeroStats extends Struct.ComponentSchema {
   collectionName: 'components_shared_hero_stats';
   info: {
@@ -321,6 +376,37 @@ export interface SharedPartners extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     paragraph: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedProblemInsightSolution extends Struct.ComponentSchema {
+  collectionName: 'components_shared_problem_insight_solutions';
+  info: {
+    displayName: 'problem-insight-solution';
+  };
+  attributes: {
+    insight: Schema.Attribute.Component<'ui.insight-card', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+          min: 1;
+        },
+        number
+      >;
+    paragraph: Schema.Attribute.Text;
+    problem: Schema.Attribute.Component<'ui.problem-card', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 1;
+        },
+        number
+      >;
+    solution: Schema.Attribute.Component<'ui.solution-card', false> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -388,6 +474,49 @@ export interface UiCardProduct extends Struct.ComponentSchema {
   };
 }
 
+export interface UiInsightCard extends Struct.ComponentSchema {
+  collectionName: 'components_ui_insight_cards';
+  info: {
+    displayName: 'insight_card';
+  };
+  attributes: {
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface UiParagraph extends Struct.ComponentSchema {
+  collectionName: 'components_ui_paragraphs';
+  info: {
+    displayName: 'paragraph';
+  };
+  attributes: {
+    paragraph: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface UiProblemCard extends Struct.ComponentSchema {
+  collectionName: 'components_ui_problem_cards';
+  info: {
+    displayName: 'problem_card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface UiSolutionCard extends Struct.ComponentSchema {
+  collectionName: 'components_ui_solution_cards';
+  info: {
+    displayName: 'solution_card';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'ui.button', false> &
+      Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface UiStat extends Struct.ComponentSchema {
   collectionName: 'components_ui_stats';
   info: {
@@ -419,16 +548,24 @@ declare module '@strapi/strapi' {
       'resource.tabbed-resource-feed': ResourceTabbedResourceFeed;
       'resource.video': ResourceVideo;
       'seo.seo-meta': SeoSeoMeta;
+      'shared.accordion': SharedAccordion;
       'shared.cards-grid': SharedCardsGrid;
+      'shared.content-image-split': SharedContentImageSplit;
       'shared.cta': SharedCta;
       'shared.feature-cards-right': SharedFeatureCardsRight;
+      'shared.hero-simple': SharedHeroSimple;
       'shared.hero-stats': SharedHeroStats;
       'shared.partners': SharedPartners;
+      'shared.problem-insight-solution': SharedProblemInsightSolution;
       'shared.products-cards': SharedProductsCards;
       'shared.resource-links': SharedResourceLinks;
       'ui.button': UiButton;
       'ui.card': UiCard;
       'ui.card-product': UiCardProduct;
+      'ui.insight-card': UiInsightCard;
+      'ui.paragraph': UiParagraph;
+      'ui.problem-card': UiProblemCard;
+      'ui.solution-card': UiSolutionCard;
       'ui.stat': UiStat;
     }
   }

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "solution",
     "pluralName": "solutions",
-    "displayName": "Solutions "
+    "displayName": "Solutions"
   },
   "options": {
     "draftAndPublish": true
@@ -26,8 +26,17 @@
         "shared.partners",
         "shared.feature-cards-right",
         "shared.cta",
-        "shared.cards-grid"
+        "shared.cards-grid",
+        "shared.content-image-split",
+        "shared.accordion",
+        "shared.problem-insight-solution"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
     }
   }
 }

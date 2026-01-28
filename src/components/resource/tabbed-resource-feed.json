@@ -11,12 +11,6 @@
     },
     "paragraph": {
       "type": "text"
-    },
-    "cards": {
-      "type": "component",
-      "component": "resource.resource-cards-many",
-      "repeatable": true,
-      "required": true
     }
   },
   "config": {}

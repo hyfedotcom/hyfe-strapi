@@ -144,40 +144,12 @@ export interface ResourceResourceCard extends Struct.ComponentSchema {
   };
 }
 
-export interface ResourceResourceCardsMany extends Struct.ComponentSchema {
-  collectionName: 'components_resource_resource_cards_manies';
-  info: {
-    displayName: 'resource_cards_many';
-  };
-  attributes: {
-    cough_news: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::cough-news-item.cough-news-item'
-    >;
-    insights: Schema.Attribute.Relation<'oneToMany', 'api::insight.insight'>;
-    news: Schema.Attribute.Relation<'oneToMany', 'api::news-item.news-item'>;
-    publications: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::publication.publication'
-    >;
-    type: Schema.Attribute.Enumeration<
-      ['insights', 'publications', 'white-papers', 'news', 'cough-news']
-    > &
-      Schema.Attribute.Required;
-    white_papers: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::white-paper.white-paper'
-    >;
-  };
-}
-
 export interface ResourceResourceFeed extends Struct.ComponentSchema {
   collectionName: 'components_resource_resource_feeds';
   info: {
     displayName: 'resource_feed';
   };
   attributes: {
-    cards: Schema.Attribute.Component<'resource.resource-cards-many', false>;
     paragraph: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -207,8 +179,6 @@ export interface ResourceTabbedResourceFeed extends Struct.ComponentSchema {
     displayName: 'tabbed_resource_feed';
   };
   attributes: {
-    cards: Schema.Attribute.Component<'resource.resource-cards-many', true> &
-      Schema.Attribute.Required;
     paragraph: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -541,7 +511,6 @@ declare module '@strapi/strapi' {
       'resource.quote': ResourceQuote;
       'resource.related-resources': ResourceRelatedResources;
       'resource.resource-card': ResourceResourceCard;
-      'resource.resource-cards-many': ResourceResourceCardsMany;
       'resource.resource-feed': ResourceResourceFeed;
       'resource.rich-text': ResourceRichText;
       'resource.subscription-form': ResourceSubscriptionForm;

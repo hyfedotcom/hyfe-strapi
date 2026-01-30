@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_testimonials_feeds",
+  "info": {
+    "displayName": "testimonials_feed"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text",
+      "required": false
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
+    }
+  },
+  "config": {}
+}

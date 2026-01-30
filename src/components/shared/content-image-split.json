@@ -25,6 +25,11 @@
       "required": true,
       "max": 3
     },
+    "ctas": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true
+    },
     "image": {
       "type": "media",
       "multiple": false,

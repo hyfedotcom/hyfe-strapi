@@ -29,7 +29,12 @@
         "shared.cards-grid",
         "shared.content-image-split",
         "shared.accordion",
-        "shared.problem-insight-solution"
+        "shared.problem-insight-solution",
+        "shared.hero-simple",
+        "shared.map",
+        "resource.resource-feed",
+        "shared.card-product-steps",
+        "shared.testimonials-feed"
       ]
     },
     "seo": {

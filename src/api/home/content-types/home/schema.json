@@ -20,8 +20,7 @@
         "shared.products-cards",
         "shared.resource-links",
         "shared.feature-cards-right",
-        "shared.cta",
-        "resource.tabbed-resource-feed"
+        "shared.cta"
       ]
     },
     "seo": {

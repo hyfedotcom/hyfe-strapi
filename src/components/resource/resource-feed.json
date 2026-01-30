@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_resource_resource_feeds",
+  "info": {
+    "displayName": "resource_feed"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "insights",
+        "publications",
+        "white-papers",
+        "news",
+        "cough-news"
+      ]
+    },
+    "tag": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tag.tag"
+    }
+  },
+  "config": {}
+}

@@ -144,6 +144,22 @@ export interface ResourceResourceCard extends Struct.ComponentSchema {
   };
 }
 
+export interface ResourceResourceFeed extends Struct.ComponentSchema {
+  collectionName: 'components_resource_resource_feeds';
+  info: {
+    displayName: 'resource_feed';
+  };
+  attributes: {
+    paragraph: Schema.Attribute.Text;
+    tag: Schema.Attribute.Relation<'oneToOne', 'api::tag.tag'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<
+      ['insights', 'publications', 'white-papers', 'news', 'cough-news']
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface ResourceRichText extends Struct.ComponentSchema {
   collectionName: 'components_resource_rich_texts';
   info: {
@@ -160,17 +176,6 @@ export interface ResourceSubscriptionForm extends Struct.ComponentSchema {
     displayName: 'subscription_form';
   };
   attributes: {};
-}
-
-export interface ResourceTabbedResourceFeed extends Struct.ComponentSchema {
-  collectionName: 'components_resource_tabbed_resource_feeds';
-  info: {
-    displayName: 'tabbed_resource_feed';
-  };
-  attributes: {
-    paragraph: Schema.Attribute.Text;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
 }
 
 export interface ResourceVideo extends Struct.ComponentSchema {
@@ -221,6 +226,27 @@ export interface SharedAccordion extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCardProductSteps extends Struct.ComponentSchema {
+  collectionName: 'components_shared_card_product_steps';
+  info: {
+    displayName: 'card_product_steps';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'ui.card-simple', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 4;
+        },
+        number
+      >;
+    ctas: Schema.Attribute.Component<'ui.button', true>;
+    paragraph: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedCardsGrid extends Struct.ComponentSchema {
   collectionName: 'components_shared_cards_grids';
   info: {
@@ -262,6 +288,7 @@ export interface SharedContentImageSplit extends Struct.ComponentSchema {
         },
         number
       >;
+    ctas: Schema.Attribute.Component<'ui.button', true>;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -304,7 +331,8 @@ export interface SharedHeroSimple extends Struct.ComponentSchema {
     displayName: 'hero-simple';
   };
   attributes: {
-    ctas: Schema.Attribute.Component<'ui.button', true>;
+    ctas: Schema.Attribute.Component<'ui.button', true> &
+      Schema.Attribute.Required;
     paragraph: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -322,6 +350,18 @@ export interface SharedHeroStats extends Struct.ComponentSchema {
     stats: Schema.Attribute.Component<'ui.stat', true> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedMap extends Struct.ComponentSchema {
+  collectionName: 'components_shared_maps';
+  info: {
+    displayName: 'map';
+  };
+  attributes: {
+    ctas: Schema.Attribute.Component<'ui.button', true>;
+    paragraph: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -394,6 +434,21 @@ export interface SharedResourceLinks extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTestimonialsFeed extends Struct.ComponentSchema {
+  collectionName: 'components_shared_testimonials_feeds';
+  info: {
+    displayName: 'testimonials_feed';
+  };
+  attributes: {
+    paragraph: Schema.Attribute.Text;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface UiButton extends Struct.ComponentSchema {
   collectionName: 'components_ui_buttons';
   info: {
@@ -408,7 +463,7 @@ export interface UiButton extends Struct.ComponentSchema {
 export interface UiCard extends Struct.ComponentSchema {
   collectionName: 'components_ui_cards';
   info: {
-    displayName: 'card';
+    displayName: 'card_icon';
   };
   attributes: {
     description: Schema.Attribute.Text;
@@ -426,6 +481,19 @@ export interface UiCardProduct extends Struct.ComponentSchema {
   };
   attributes: {
     cta: Schema.Attribute.Component<'ui.button', true>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface UiCardSimple extends Struct.ComponentSchema {
+  collectionName: 'components_ui_card_simples';
+  info: {
+    displayName: 'card_simple';
+  };
+  attributes: {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
@@ -500,25 +568,29 @@ declare module '@strapi/strapi' {
       'resource.quote': ResourceQuote;
       'resource.related-resources': ResourceRelatedResources;
       'resource.resource-card': ResourceResourceCard;
+      'resource.resource-feed': ResourceResourceFeed;
       'resource.rich-text': ResourceRichText;
       'resource.subscription-form': ResourceSubscriptionForm;
-      'resource.tabbed-resource-feed': ResourceTabbedResourceFeed;
       'resource.video': ResourceVideo;
       'seo.seo-meta': SeoSeoMeta;
       'shared.accordion': SharedAccordion;
+      'shared.card-product-steps': SharedCardProductSteps;
       'shared.cards-grid': SharedCardsGrid;
       'shared.content-image-split': SharedContentImageSplit;
       'shared.cta': SharedCta;
       'shared.feature-cards-right': SharedFeatureCardsRight;
       'shared.hero-simple': SharedHeroSimple;
       'shared.hero-stats': SharedHeroStats;
+      'shared.map': SharedMap;
       'shared.partners': SharedPartners;
       'shared.problem-insight-solution': SharedProblemInsightSolution;
       'shared.products-cards': SharedProductsCards;
       'shared.resource-links': SharedResourceLinks;
+      'shared.testimonials-feed': SharedTestimonialsFeed;
       'ui.button': UiButton;
       'ui.card': UiCard;
       'ui.card-product': UiCardProduct;
+      'ui.card-simple': UiCardSimple;
       'ui.insight-card': UiInsightCard;
       'ui.paragraph': UiParagraph;
       'ui.problem-card': UiProblemCard;

@@ -1,13 +1,12 @@
 {
-  "collectionName": "components_shared_hero_simples",
+  "collectionName": "components_shared_maps",
   "info": {
-    "displayName": "hero-simple"
+    "displayName": "map"
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "paragraph": {
       "type": "text"
@@ -15,8 +14,7 @@
     "ctas": {
       "type": "component",
       "component": "ui.button",
-      "repeatable": true,
-      "required": true
+      "repeatable": true
     }
   },
   "config": {}

@@ -571,7 +571,6 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'shared.resource-links',
         'shared.feature-cards-right',
         'shared.cta',
-        'resource.tabbed-resource-feed',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &
@@ -891,6 +890,11 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
         'shared.content-image-split',
         'shared.accordion',
         'shared.problem-insight-solution',
+        'shared.hero-simple',
+        'shared.map',
+        'resource.resource-feed',
+        'shared.card-product-steps',
+        'shared.testimonials-feed',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &
@@ -932,6 +936,36 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Required;
     tag: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    displayName: 'testimonials';
+    pluralName: 'testimonials';
+    singularName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    paragraph: Schema.Attribute.Text & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1543,6 +1577,7 @@ declare module '@strapi/strapi' {
       'api::science-and-research-resource.science-and-research-resource': ApiScienceAndResearchResourceScienceAndResearchResource;
       'api::solution.solution': ApiSolutionSolution;
       'api::tag.tag': ApiTagTag;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::white-paper.white-paper': ApiWhitePaperWhitePaper;
       'api::white-papers-landing.white-papers-landing': ApiWhitePapersLandingWhitePapersLanding;
       'plugin::content-releases.release': PluginContentReleasesRelease;

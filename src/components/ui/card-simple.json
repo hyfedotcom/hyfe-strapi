@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_ui_cards",
+  "collectionName": "components_ui_card_simples",
   "info": {
-    "displayName": "card_icon"
+    "displayName": "card_simple"
   },
   "options": {},
   "attributes": {
@@ -16,14 +16,6 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
-    "icon": {
-      "type": "media",
-      "multiple": false,
       "allowedTypes": [
         "images",
         "files"

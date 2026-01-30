@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_shared_hero_simples",
+  "collectionName": "components_shared_card_product_steps",
   "info": {
-    "displayName": "hero-simple"
+    "displayName": "card_product_steps"
   },
   "options": {},
   "attributes": {
@@ -15,8 +15,15 @@
     "ctas": {
       "type": "component",
       "component": "ui.button",
+      "repeatable": true
+    },
+    "cards": {
+      "type": "component",
+      "component": "ui.card-simple",
       "repeatable": true,
-      "required": true
+      "required": true,
+      "min": 4,
+      "max": 4
     }
   },
   "config": {}

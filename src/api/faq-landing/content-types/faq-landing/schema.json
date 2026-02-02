@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "faqs_landing",
+  "info": {
+    "singularName": "faq-landing",
+    "pluralName": "faqs-landing",
+    "displayName": "FAQ-landing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text",
+      "required": false
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.faq-section"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}

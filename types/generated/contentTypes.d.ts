@@ -430,6 +430,43 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareersLandingCareersLanding
+  extends Struct.SingleTypeSchema {
+  collectionName: 'careers_landings';
+  info: {
+    displayName: 'Careers landing';
+    pluralName: 'careers-landings';
+    singularName: 'careers-landing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<'images' | 'files', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::careers-landing.careers-landing'
+    > &
+      Schema.Attribute.Private;
+    paragraph: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    vacancies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vacancies-item.vacancies-item'
+    >;
+  };
+}
+
 export interface ApiCompanyResourceCompanyResource
   extends Struct.SingleTypeSchema {
   collectionName: 'company_resources';
@@ -538,6 +575,64 @@ export interface ApiCoughNewsLandingCoughNewsLanding
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'resource-landing'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqLandingFaqLanding extends Struct.SingleTypeSchema {
+  collectionName: 'faqs_landing';
+  info: {
+    displayName: 'FAQ-landing';
+    pluralName: 'faqs-landing';
+    singularName: 'faq-landing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-landing.faq-landing'
+    > &
+      Schema.Attribute.Private;
+    paragraph: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<['shared.faq-section']>;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    displayName: 'faq';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -966,6 +1061,44 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     paragraph: Schema.Attribute.Text & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiVacanciesItemVacanciesItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'vacancies_items';
+  info: {
+    displayName: 'vacancies';
+    pluralName: 'vacancies-items';
+    singularName: 'vacancies-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apply_link: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    employment_type: Schema.Attribute.String & Schema.Attribute.Required;
+    excerpt: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vacancies-item.vacancies-item'
+    > &
+      Schema.Attribute.Private;
+    location_type: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    rich_text: Schema.Attribute.Component<'resource.rich-text', false>;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    time_zone: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1564,9 +1697,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::careers-landing.careers-landing': ApiCareersLandingCareersLanding;
       'api::company-resource.company-resource': ApiCompanyResourceCompanyResource;
       'api::cough-news-item.cough-news-item': ApiCoughNewsItemCoughNewsItem;
       'api::cough-news-landing.cough-news-landing': ApiCoughNewsLandingCoughNewsLanding;
+      'api::faq-landing.faq-landing': ApiFaqLandingFaqLanding;
+      'api::faq.faq': ApiFaqFaq;
       'api::home.home': ApiHomeHome;
       'api::insight.insight': ApiInsightInsight;
       'api::insights-landing.insights-landing': ApiInsightsLandingInsightsLanding;
@@ -1578,6 +1714,7 @@ declare module '@strapi/strapi' {
       'api::solution.solution': ApiSolutionSolution;
       'api::tag.tag': ApiTagTag;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::vacancies-item.vacancies-item': ApiVacanciesItemVacanciesItem;
       'api::white-paper.white-paper': ApiWhitePaperWhitePaper;
       'api::white-papers-landing.white-papers-landing': ApiWhitePapersLandingWhitePapersLanding;
       'plugin::content-releases.release': PluginContentReleasesRelease;

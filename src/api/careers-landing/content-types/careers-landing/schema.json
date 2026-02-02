@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "careers_landings",
+  "info": {
+    "singularName": "careers-landing",
+    "pluralName": "careers-landings",
+    "displayName": "Careers landing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "vacancies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vacancies-item.vacancies-item"
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}

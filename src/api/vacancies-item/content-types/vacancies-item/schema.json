@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vacancies_items",
+  "info": {
+    "singularName": "vacancies-item",
+    "pluralName": "vacancies-items",
+    "displayName": "vacancies"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "location_type": {
+      "type": "string",
+      "required": true
+    },
+    "time_zone": {
+      "type": "string",
+      "required": true
+    },
+    "employment_type": {
+      "type": "string",
+      "required": true
+    },
+    "apply_link": {
+      "type": "string",
+      "required": true
+    },
+    "rich_text": {
+      "type": "component",
+      "component": "resource.rich-text",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}

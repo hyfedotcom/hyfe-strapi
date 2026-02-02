@@ -310,6 +310,17 @@ export interface SharedCta extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFaqSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faq_sections';
+  info: {
+    displayName: 'faq_section';
+  };
+  attributes: {
+    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedFeatureCardsRight extends Struct.ComponentSchema {
   collectionName: 'components_shared_feature_cards_rights';
   info: {
@@ -578,6 +589,7 @@ declare module '@strapi/strapi' {
       'shared.cards-grid': SharedCardsGrid;
       'shared.content-image-split': SharedContentImageSplit;
       'shared.cta': SharedCta;
+      'shared.faq-section': SharedFaqSection;
       'shared.feature-cards-right': SharedFeatureCardsRight;
       'shared.hero-simple': SharedHeroSimple;
       'shared.hero-stats': SharedHeroStats;

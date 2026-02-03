@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faq_groups",
+  "info": {
+    "singularName": "faq-group",
+    "pluralName": "faq-groups",
+    "displayName": "faq_group"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "group_name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

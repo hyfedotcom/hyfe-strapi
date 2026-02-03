@@ -445,6 +445,19 @@ export interface SharedResourceLinks extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTeamOrder extends Struct.ComponentSchema {
+  collectionName: 'components_shared_team_orders';
+  info: {
+    displayName: 'team_order';
+  };
+  attributes: {
+    team_group: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::team-group.team-group'
+    >;
+  };
+}
+
 export interface SharedTestimonialsFeed extends Struct.ComponentSchema {
   collectionName: 'components_shared_testimonials_feeds';
   info: {
@@ -598,6 +611,7 @@ declare module '@strapi/strapi' {
       'shared.problem-insight-solution': SharedProblemInsightSolution;
       'shared.products-cards': SharedProductsCards;
       'shared.resource-links': SharedResourceLinks;
+      'shared.team-order': SharedTeamOrder;
       'shared.testimonials-feed': SharedTestimonialsFeed;
       'ui.button': UiButton;
       'ui.card': UiCard;

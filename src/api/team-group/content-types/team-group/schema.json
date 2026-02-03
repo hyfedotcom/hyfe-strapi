@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_groups",
+  "info": {
+    "singularName": "team-group",
+    "pluralName": "team-groups",
+    "displayName": "team_group"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name_group": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

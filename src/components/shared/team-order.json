@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_team_orders",
+  "info": {
+    "displayName": "team_order"
+  },
+  "options": {},
+  "attributes": {
+    "team_group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team-group.team-group"
+    }
+  },
+  "config": {}
+}

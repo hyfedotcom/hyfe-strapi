@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "faqs_landing",
+  "collectionName": "team_landings",
   "info": {
-    "singularName": "faq-landing",
-    "pluralName": "faqs-landing",
-    "displayName": "FAQ-landing"
+    "singularName": "team-landing",
+    "pluralName": "team-landings",
+    "displayName": "Team Landing"
   },
   "options": {
     "draftAndPublish": true
@@ -16,13 +16,15 @@
       "required": true
     },
     "paragraph": {
-      "type": "text",
-      "required": false
+      "type": "text"
     },
-    "faq_groups": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::faq-group.faq-group"
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.team-order"
+      ],
+      "required": true,
+      "min": 3
     },
     "seo": {
       "type": "component",

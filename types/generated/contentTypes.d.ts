@@ -581,6 +581,34 @@ export interface ApiCoughNewsLandingCoughNewsLanding
   };
 }
 
+export interface ApiFaqGroupFaqGroup extends Struct.CollectionTypeSchema {
+  collectionName: 'faq_groups';
+  info: {
+    displayName: 'faq_group';
+    pluralName: 'faq-groups';
+    singularName: 'faq-group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    group_name: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-group.faq-group'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFaqLandingFaqLanding extends Struct.SingleTypeSchema {
   collectionName: 'faqs_landing';
   info: {
@@ -595,6 +623,10 @@ export interface ApiFaqLandingFaqLanding extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    faq_groups: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-group.faq-group'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -603,7 +635,6 @@ export interface ApiFaqLandingFaqLanding extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     paragraph: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.DynamicZone<['shared.faq-section']>;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -628,6 +659,10 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    faq_group: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::faq-group.faq-group'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
       Schema.Attribute.Private;
@@ -1031,6 +1066,116 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Required;
     tag: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamGroupTeamGroup extends Struct.CollectionTypeSchema {
+  collectionName: 'team_groups';
+  info: {
+    displayName: 'team_group';
+    pluralName: 'team-groups';
+    singularName: 'team-group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-group.team-group'
+    > &
+      Schema.Attribute.Private;
+    name_group: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamLandingTeamLanding extends Struct.SingleTypeSchema {
+  collectionName: 'team_landings';
+  info: {
+    displayName: 'Team Landing';
+    pluralName: 'team-landings';
+    singularName: 'team-landing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-landing.team-landing'
+    > &
+      Schema.Attribute.Private;
+    paragraph: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<['shared.team-order']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 3;
+        },
+        number
+      >;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
+  collectionName: 'teams';
+  info: {
+    displayName: 'team';
+    pluralName: 'teams';
+    singularName: 'team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    biography: Schema.Attribute.Component<'resource.rich-text', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    job: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    linkedin: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::team.team'> &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    team_group: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::team-group.team-group'
+    >;
+    twitter: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1701,6 +1846,7 @@ declare module '@strapi/strapi' {
       'api::company-resource.company-resource': ApiCompanyResourceCompanyResource;
       'api::cough-news-item.cough-news-item': ApiCoughNewsItemCoughNewsItem;
       'api::cough-news-landing.cough-news-landing': ApiCoughNewsLandingCoughNewsLanding;
+      'api::faq-group.faq-group': ApiFaqGroupFaqGroup;
       'api::faq-landing.faq-landing': ApiFaqLandingFaqLanding;
       'api::faq.faq': ApiFaqFaq;
       'api::home.home': ApiHomeHome;
@@ -1713,6 +1859,9 @@ declare module '@strapi/strapi' {
       'api::science-and-research-resource.science-and-research-resource': ApiScienceAndResearchResourceScienceAndResearchResource;
       'api::solution.solution': ApiSolutionSolution;
       'api::tag.tag': ApiTagTag;
+      'api::team-group.team-group': ApiTeamGroupTeamGroup;
+      'api::team-landing.team-landing': ApiTeamLandingTeamLanding;
+      'api::team.team': ApiTeamTeam;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::vacancies-item.vacancies-item': ApiVacanciesItemVacanciesItem;
       'api::white-paper.white-paper': ApiWhitePaperWhitePaper;

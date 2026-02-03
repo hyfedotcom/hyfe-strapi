@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teams",
+  "info": {
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "team"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "team_group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team-group.team-group"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "job": {
+      "type": "string",
+      "maxLength": 40,
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "biography": {
+      "type": "component",
+      "component": "resource.rich-text",
+      "repeatable": false,
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo-meta",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}

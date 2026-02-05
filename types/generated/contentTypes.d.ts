@@ -430,11 +430,82 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAdvisorAdvisor extends Struct.CollectionTypeSchema {
+  collectionName: 'advisors';
+  info: {
+    displayName: 'People - Advisors';
+    pluralName: 'advisors';
+    singularName: 'advisor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    biography: Schema.Attribute.Component<'resource.rich-text', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    job: Schema.Attribute.String & Schema.Attribute.Required;
+    linkedin: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::advisor.advisor'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    twitter: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAdvisorsLandingAdvisorsLanding
+  extends Struct.SingleTypeSchema {
+  collectionName: 'advisors_landings';
+  info: {
+    displayName: 'Page - Advisors';
+    pluralName: 'advisors-landings';
+    singularName: 'advisors-landing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::advisors-landing.advisors-landing'
+    > &
+      Schema.Attribute.Private;
+    paragraph: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCareersLandingCareersLanding
   extends Struct.SingleTypeSchema {
   collectionName: 'careers_landings';
   info: {
-    displayName: 'Careers landing';
+    displayName: 'Page - Careers';
     pluralName: 'careers-landings';
     singularName: 'careers-landing';
   };
@@ -460,10 +531,6 @@ export interface ApiCareersLandingCareersLanding
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    vacancies: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancies-item.vacancies-item'
-    >;
   };
 }
 
@@ -471,7 +538,7 @@ export interface ApiCompanyResourceCompanyResource
   extends Struct.SingleTypeSchema {
   collectionName: 'company_resources';
   info: {
-    displayName: 'Company Resources';
+    displayName: 'Page - Company';
     pluralName: 'company-resources';
     singularName: 'company-resource';
   };
@@ -502,7 +569,7 @@ export interface ApiCoughNewsItemCoughNewsItem
   extends Struct.CollectionTypeSchema {
   collectionName: 'cough_news_items';
   info: {
-    displayName: 'Cough News';
+    displayName: 'Resources - Cough News';
     pluralName: 'cough-news-items';
     singularName: 'cough-news-item';
   };
@@ -551,7 +618,7 @@ export interface ApiCoughNewsLandingCoughNewsLanding
   extends Struct.SingleTypeSchema {
   collectionName: 'cough_news_landings';
   info: {
-    displayName: 'Cough News Landing';
+    displayName: 'Page - Cough News';
     pluralName: 'cough-news-landings';
     singularName: 'cough-news-landing';
   };
@@ -584,7 +651,7 @@ export interface ApiCoughNewsLandingCoughNewsLanding
 export interface ApiFaqGroupFaqGroup extends Struct.CollectionTypeSchema {
   collectionName: 'faq_groups';
   info: {
-    displayName: 'faq_group';
+    displayName: 'Taxonomy - FAQ Group';
     pluralName: 'faq-groups';
     singularName: 'faq-group';
   };
@@ -612,7 +679,7 @@ export interface ApiFaqGroupFaqGroup extends Struct.CollectionTypeSchema {
 export interface ApiFaqLandingFaqLanding extends Struct.SingleTypeSchema {
   collectionName: 'faqs_landing';
   info: {
-    displayName: 'FAQ-landing';
+    displayName: 'Page - FAQ';
     pluralName: 'faqs-landing';
     singularName: 'faq-landing';
   };
@@ -647,7 +714,7 @@ export interface ApiFaqLandingFaqLanding extends Struct.SingleTypeSchema {
 export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   collectionName: 'faqs';
   info: {
-    displayName: 'faq';
+    displayName: 'Content - Questions';
     pluralName: 'faqs';
     singularName: 'faq';
   };
@@ -677,7 +744,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
-    displayName: 'Home';
+    displayName: 'Page - Home';
     pluralName: 'homes';
     singularName: 'home';
   };
@@ -716,7 +783,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
 export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
   collectionName: 'insights';
   info: {
-    displayName: 'Insights';
+    displayName: 'Resources - Insights';
     pluralName: 'insights';
     singularName: 'insight';
   };
@@ -765,7 +832,7 @@ export interface ApiInsightsLandingInsightsLanding
   extends Struct.SingleTypeSchema {
   collectionName: 'insights_landings';
   info: {
-    displayName: 'insights-landing';
+    displayName: 'Page - Insights';
     pluralName: 'insights-landings';
     singularName: 'insights-landing';
   };
@@ -797,7 +864,7 @@ export interface ApiInsightsLandingInsightsLanding
 export interface ApiNewsItemNewsItem extends Struct.CollectionTypeSchema {
   collectionName: 'news_items';
   info: {
-    displayName: 'News';
+    displayName: 'Resources - News';
     pluralName: 'news-items';
     singularName: 'news-item';
   };
@@ -845,7 +912,7 @@ export interface ApiNewsItemNewsItem extends Struct.CollectionTypeSchema {
 export interface ApiNewsLandingNewsLanding extends Struct.SingleTypeSchema {
   collectionName: 'news_landings';
   info: {
-    displayName: 'news-landing';
+    displayName: 'Page - News';
     pluralName: 'news-landings';
     singularName: 'news-landing';
   };
@@ -878,7 +945,7 @@ export interface ApiNewsLandingNewsLanding extends Struct.SingleTypeSchema {
 export interface ApiPublicationPublication extends Struct.CollectionTypeSchema {
   collectionName: 'publications';
   info: {
-    displayName: 'Publications';
+    displayName: 'Resources - Publications';
     pluralName: 'publications';
     singularName: 'publication';
   };
@@ -927,7 +994,7 @@ export interface ApiPublicationsLandingPublicationsLanding
   extends Struct.SingleTypeSchema {
   collectionName: 'publications_landings';
   info: {
-    displayName: 'publications-landing';
+    displayName: 'Page - Publications';
     pluralName: 'publications-landings';
     singularName: 'publications-landing';
   };
@@ -962,7 +1029,7 @@ export interface ApiScienceAndResearchResourceScienceAndResearchResource
   extends Struct.SingleTypeSchema {
   collectionName: 'science_and_research_resources';
   info: {
-    displayName: 'Science & Research Resources';
+    displayName: 'Page - Science & Research Resources';
     pluralName: 'science-and-research-resources';
     singularName: 'science-and-research-resource';
   };
@@ -992,7 +1059,7 @@ export interface ApiScienceAndResearchResourceScienceAndResearchResource
 export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
   collectionName: 'solutions';
   info: {
-    displayName: 'Solutions';
+    displayName: 'Pages - Solutions';
     pluralName: 'solutions';
     singularName: 'solution';
   };
@@ -1039,7 +1106,7 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
-    displayName: 'tags';
+    displayName: 'Taxonomy - Resource Tags';
     pluralName: 'tags';
     singularName: 'tag';
   };
@@ -1075,7 +1142,7 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
 export interface ApiTeamGroupTeamGroup extends Struct.CollectionTypeSchema {
   collectionName: 'team_groups';
   info: {
-    displayName: 'team_group';
+    displayName: 'Taxonomy - Team Groups';
     pluralName: 'team-groups';
     singularName: 'team-group';
   };
@@ -1103,7 +1170,7 @@ export interface ApiTeamGroupTeamGroup extends Struct.CollectionTypeSchema {
 export interface ApiTeamLandingTeamLanding extends Struct.SingleTypeSchema {
   collectionName: 'team_landings';
   info: {
-    displayName: 'Team Landing';
+    displayName: 'Page - Team';
     pluralName: 'team-landings';
     singularName: 'team-landing';
   };
@@ -1142,7 +1209,7 @@ export interface ApiTeamLandingTeamLanding extends Struct.SingleTypeSchema {
 export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
   collectionName: 'teams';
   info: {
-    displayName: 'team';
+    displayName: 'People - Team';
     pluralName: 'teams';
     singularName: 'team';
   };
@@ -1171,6 +1238,7 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &
       Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     team_group: Schema.Attribute.Relation<
       'oneToOne',
       'api::team-group.team-group'
@@ -1185,7 +1253,7 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
-    displayName: 'testimonials';
+    displayName: 'Content - Testimonials';
     pluralName: 'testimonials';
     singularName: 'testimonial';
   };
@@ -1216,7 +1284,7 @@ export interface ApiVacanciesItemVacanciesItem
   extends Struct.CollectionTypeSchema {
   collectionName: 'vacancies_items';
   info: {
-    displayName: 'vacancies';
+    displayName: 'Content - Vacancies';
     pluralName: 'vacancies-items';
     singularName: 'vacancies-item';
   };
@@ -1253,7 +1321,7 @@ export interface ApiVacanciesItemVacanciesItem
 export interface ApiWhitePaperWhitePaper extends Struct.CollectionTypeSchema {
   collectionName: 'white_papers';
   info: {
-    displayName: 'White papers';
+    displayName: 'Resources - White papers';
     pluralName: 'white-papers';
     singularName: 'white-paper';
   };
@@ -1302,7 +1370,7 @@ export interface ApiWhitePapersLandingWhitePapersLanding
   extends Struct.SingleTypeSchema {
   collectionName: 'white_papers_landings';
   info: {
-    displayName: 'white-papers-landing';
+    displayName: 'Page - White Wapers';
     pluralName: 'white-papers-landings';
     singularName: 'white-papers-landing';
   };
@@ -1842,6 +1910,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::advisor.advisor': ApiAdvisorAdvisor;
+      'api::advisors-landing.advisors-landing': ApiAdvisorsLandingAdvisorsLanding;
       'api::careers-landing.careers-landing': ApiCareersLandingCareersLanding;
       'api::company-resource.company-resource': ApiCompanyResourceCompanyResource;
       'api::cough-news-item.cough-news-item': ApiCoughNewsItemCoughNewsItem;

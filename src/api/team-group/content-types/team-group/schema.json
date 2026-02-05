@@ -4,7 +4,7 @@
   "info": {
     "singularName": "team-group",
     "pluralName": "team-groups",
-    "displayName": "team_group"
+    "displayName": "Taxonomy - Team Groups"
   },
   "options": {
     "draftAndPublish": true

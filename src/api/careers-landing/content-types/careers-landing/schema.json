@@ -4,7 +4,7 @@
   "info": {
     "singularName": "careers-landing",
     "pluralName": "careers-landings",
-    "displayName": "Careers landing"
+    "displayName": "Page - Careers"
   },
   "options": {
     "draftAndPublish": true
@@ -25,11 +25,6 @@
         "images",
         "files"
       ]
-    },
-    "vacancies": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::vacancies-item.vacancies-item"
     },
     "seo": {
       "type": "component",

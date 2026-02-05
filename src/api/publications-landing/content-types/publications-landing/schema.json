@@ -4,7 +4,7 @@
   "info": {
     "singularName": "publications-landing",
     "pluralName": "publications-landings",
-    "displayName": "publications-landing"
+    "displayName": "Page - Publications"
   },
   "options": {
     "draftAndPublish": true

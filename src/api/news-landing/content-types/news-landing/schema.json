@@ -4,7 +4,7 @@
   "info": {
     "singularName": "news-landing",
     "pluralName": "news-landings",
-    "displayName": "news-landing"
+    "displayName": "Page - News"
   },
   "options": {
     "draftAndPublish": true

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "insight",
     "pluralName": "insights",
-    "displayName": "Insights"
+    "displayName": "Resources - Insights"
   },
   "options": {
     "draftAndPublish": true

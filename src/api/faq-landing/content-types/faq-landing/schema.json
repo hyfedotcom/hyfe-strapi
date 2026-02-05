@@ -4,7 +4,7 @@
   "info": {
     "singularName": "faq-landing",
     "pluralName": "faqs-landing",
-    "displayName": "FAQ-landing"
+    "displayName": "Page - FAQ"
   },
   "options": {
     "draftAndPublish": true

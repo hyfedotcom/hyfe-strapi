@@ -4,7 +4,7 @@
   "info": {
     "singularName": "faq-group",
     "pluralName": "faq-groups",
-    "displayName": "faq_group"
+    "displayName": "Taxonomy - FAQ Group"
   },
   "options": {
     "draftAndPublish": true

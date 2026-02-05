@@ -4,7 +4,7 @@
   "info": {
     "singularName": "cough-news-item",
     "pluralName": "cough-news-items",
-    "displayName": "Cough News"
+    "displayName": "Resources - Cough News"
   },
   "options": {
     "draftAndPublish": true

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "insights-landing",
     "pluralName": "insights-landings",
-    "displayName": "insights-landing"
+    "displayName": "Page - Insights"
   },
   "options": {
     "draftAndPublish": true

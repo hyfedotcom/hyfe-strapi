@@ -4,7 +4,7 @@
   "info": {
     "singularName": "team-landing",
     "pluralName": "team-landings",
-    "displayName": "Team Landing"
+    "displayName": "Page - Team"
   },
   "options": {
     "draftAndPublish": true

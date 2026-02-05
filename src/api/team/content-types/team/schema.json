@@ -4,7 +4,7 @@
   "info": {
     "singularName": "team",
     "pluralName": "teams",
-    "displayName": "team"
+    "displayName": "People - Team"
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +13,11 @@
   "attributes": {
     "name": {
       "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
       "required": true
     },
     "image": {

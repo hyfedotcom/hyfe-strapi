@@ -4,7 +4,7 @@
   "info": {
     "singularName": "company-resource",
     "pluralName": "company-resources",
-    "displayName": "Page - Company"
+    "displayName": "Page - Company Resources"
   },
   "options": {
     "draftAndPublish": true
@@ -17,6 +17,12 @@
     },
     "paragraph": {
       "type": "text"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "resource.resource-feed"
+      ]
     },
     "seo": {
       "type": "component",

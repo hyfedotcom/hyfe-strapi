@@ -18,6 +18,12 @@
     "paragraph": {
       "type": "text"
     },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "resource.resource-feed"
+      ]
+    },
     "seo": {
       "type": "component",
       "component": "seo.seo-meta",

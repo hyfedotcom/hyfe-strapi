@@ -538,7 +538,7 @@ export interface ApiCompanyResourceCompanyResource
   extends Struct.SingleTypeSchema {
   collectionName: 'company_resources';
   info: {
-    displayName: 'Page - Company';
+    displayName: 'Page - Company Resources';
     pluralName: 'company-resources';
     singularName: 'company-resource';
   };
@@ -557,6 +557,7 @@ export interface ApiCompanyResourceCompanyResource
       Schema.Attribute.Private;
     paragraph: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<['resource.resource-feed']>;
     seo: Schema.Attribute.Component<'seo.seo-meta', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -768,6 +769,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'shared.resource-links',
         'shared.feature-cards-right',
         'shared.cta',
+        'resource.resource-feed-many',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &
@@ -1048,6 +1050,7 @@ export interface ApiScienceAndResearchResourceScienceAndResearchResource
       Schema.Attribute.Private;
     paragraph: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<['resource.resource-feed']>;
     seo: Schema.Attribute.Component<'seo.seo-meta', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -1092,6 +1095,7 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
         'resource.resource-feed',
         'shared.card-product-steps',
         'shared.testimonials-feed',
+        'resource.resource-feed-many',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &

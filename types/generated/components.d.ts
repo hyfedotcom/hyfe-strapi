@@ -160,6 +160,23 @@ export interface ResourceResourceFeed extends Struct.ComponentSchema {
   };
 }
 
+export interface ResourceResourceFeedMany extends Struct.ComponentSchema {
+  collectionName: 'components_resource_resource_feed_manies';
+  info: {
+    displayName: 'resource_feed_many';
+  };
+  attributes: {
+    resource_list: Schema.Attribute.Component<'resource.resource-feed', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 2;
+        },
+        number
+      >;
+  };
+}
+
 export interface ResourceRichText extends Struct.ComponentSchema {
   collectionName: 'components_resource_rich_texts';
   info: {
@@ -593,6 +610,7 @@ declare module '@strapi/strapi' {
       'resource.related-resources': ResourceRelatedResources;
       'resource.resource-card': ResourceResourceCard;
       'resource.resource-feed': ResourceResourceFeed;
+      'resource.resource-feed-many': ResourceResourceFeedMany;
       'resource.rich-text': ResourceRichText;
       'resource.subscription-form': ResourceSubscriptionForm;
       'resource.video': ResourceVideo;

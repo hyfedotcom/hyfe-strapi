@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_resource_resource_feed_manies",
+  "info": {
+    "displayName": "resource_feed_many"
+  },
+  "options": {},
+  "attributes": {
+    "resource_list": {
+      "type": "component",
+      "component": "resource.resource-feed",
+      "repeatable": true,
+      "min": 2,
+      "max": 5
+    }
+  },
+  "config": {}
+}

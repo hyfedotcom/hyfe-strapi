@@ -34,7 +34,8 @@
         "shared.map",
         "resource.resource-feed",
         "shared.card-product-steps",
-        "shared.testimonials-feed"
+        "shared.testimonials-feed",
+        "resource.resource-feed-many"
       ]
     },
     "seo": {

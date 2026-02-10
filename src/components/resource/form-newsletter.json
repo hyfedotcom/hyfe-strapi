@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_resource_form_newsletters",
+  "info": {
+    "displayName": "form_newsletter"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "benefits_list": {
+      "type": "component",
+      "component": "ui.benefits-list",
+      "repeatable": true
+    },
+    "cta_label": {
+      "type": "string",
+      "required": true
+    },
+    "consent_label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

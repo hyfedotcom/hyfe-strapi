@@ -1,5 +1,13 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface LayoutNewsletterForm extends Struct.ComponentSchema {
+  collectionName: 'components_layout_newsletter_forms';
+  info: {
+    displayName: 'newsletter_form';
+  };
+  attributes: {};
+}
+
 export interface ResourceAdditionalInfo extends Struct.ComponentSchema {
   collectionName: 'components_resource_additional_infos';
   info: {
@@ -46,6 +54,19 @@ export interface ResourceCtaCard extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ResourceFormNewsletter extends Struct.ComponentSchema {
+  collectionName: 'components_resource_form_newsletters';
+  info: {
+    displayName: 'form_newsletter';
+  };
+  attributes: {
+    benefits_list: Schema.Attribute.Component<'ui.benefits-list', true>;
+    consent_label: Schema.Attribute.String & Schema.Attribute.Required;
+    cta_label: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -375,8 +396,6 @@ export interface SharedHeroStats extends Struct.ComponentSchema {
     ctas: Schema.Attribute.Component<'ui.button', true> &
       Schema.Attribute.Required;
     paragraph: Schema.Attribute.Text & Schema.Attribute.Required;
-    stats: Schema.Attribute.Component<'ui.stat', true> &
-      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -490,6 +509,16 @@ export interface SharedTestimonialsFeed extends Struct.ComponentSchema {
   };
 }
 
+export interface UiBenefitsList extends Struct.ComponentSchema {
+  collectionName: 'components_ui_benefits_lists';
+  info: {
+    displayName: 'benefits_list';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface UiButton extends Struct.ComponentSchema {
   collectionName: 'components_ui_buttons';
   info: {
@@ -599,10 +628,12 @@ export interface UiStat extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'layout.newsletter-form': LayoutNewsletterForm;
       'resource.additional-info': ResourceAdditionalInfo;
       'resource.additional-resource-link': ResourceAdditionalResourceLink;
       'resource.cta': ResourceCta;
       'resource.cta-card': ResourceCtaCard;
+      'resource.form-newsletter': ResourceFormNewsletter;
       'resource.hero': ResourceHero;
       'resource.image': ResourceImage;
       'resource.link-card': ResourceLinkCard;
@@ -631,6 +662,7 @@ declare module '@strapi/strapi' {
       'shared.resource-links': SharedResourceLinks;
       'shared.team-order': SharedTeamOrder;
       'shared.testimonials-feed': SharedTestimonialsFeed;
+      'ui.benefits-list': UiBenefitsList;
       'ui.button': UiButton;
       'ui.card': UiCard;
       'ui.card-product': UiCardProduct;

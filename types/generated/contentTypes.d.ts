@@ -742,6 +742,38 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGeneralGeneral extends Struct.SingleTypeSchema {
+  collectionName: 'generals';
+  info: {
+    displayName: 'General';
+    pluralName: 'generals';
+    singularName: 'general';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::general.general'
+    > &
+      Schema.Attribute.Private;
+    newsletter_form: Schema.Attribute.Component<
+      'resource.form-newsletter',
+      false
+    > &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -1961,6 +1993,7 @@ declare module '@strapi/strapi' {
       'api::faq-group.faq-group': ApiFaqGroupFaqGroup;
       'api::faq-landing.faq-landing': ApiFaqLandingFaqLanding;
       'api::faq.faq': ApiFaqFaq;
+      'api::general.general': ApiGeneralGeneral;
       'api::home.home': ApiHomeHome;
       'api::insight.insight': ApiInsightInsight;
       'api::insights-landing.insights-landing': ApiInsightsLandingInsightsLanding;

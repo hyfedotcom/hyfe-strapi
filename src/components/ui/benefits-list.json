@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_ui_benefits_lists",
+  "info": {
+    "displayName": "benefits_list"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

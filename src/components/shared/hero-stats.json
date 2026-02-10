@@ -18,12 +18,6 @@
       "component": "ui.button",
       "repeatable": true,
       "required": true
-    },
-    "stats": {
-      "type": "component",
-      "component": "ui.stat",
-      "repeatable": true,
-      "required": true
     }
   },
   "config": {}

@@ -944,6 +944,44 @@ export interface ApiNewsLandingNewsLanding extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPrivacyTermItemPrivacyTermItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'privacy_term_items';
+  info: {
+    displayName: 'Pages - PPs & T&Cs';
+    pluralName: 'privacy-term-items';
+    singularName: 'privacy-term-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content_only: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-term-item.privacy-term-item'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    rich_text: Schema.Attribute.Component<'resource.rich-text', false> &
+      Schema.Attribute.Required;
+    seo: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPublicationPublication extends Struct.CollectionTypeSchema {
   collectionName: 'publications';
   info: {
@@ -1928,6 +1966,7 @@ declare module '@strapi/strapi' {
       'api::insights-landing.insights-landing': ApiInsightsLandingInsightsLanding;
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::news-landing.news-landing': ApiNewsLandingNewsLanding;
+      'api::privacy-term-item.privacy-term-item': ApiPrivacyTermItemPrivacyTermItem;
       'api::publication.publication': ApiPublicationPublication;
       'api::publications-landing.publications-landing': ApiPublicationsLandingPublicationsLanding;
       'api::science-and-research-resource.science-and-research-resource': ApiScienceAndResearchResourceScienceAndResearchResource;

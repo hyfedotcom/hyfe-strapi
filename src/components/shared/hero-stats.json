@@ -18,6 +18,12 @@
       "component": "ui.button",
       "repeatable": true,
       "required": true
+    },
+    "clinical_trials": {
+      "type": "component",
+      "component": "ui.stat",
+      "repeatable": false,
+      "required": true
     }
   },
   "config": {}

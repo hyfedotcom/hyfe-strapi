@@ -393,6 +393,8 @@ export interface SharedHeroStats extends Struct.ComponentSchema {
     displayName: 'hero_stats';
   };
   attributes: {
+    clinical_trials: Schema.Attribute.Component<'ui.stat', false> &
+      Schema.Attribute.Required;
     ctas: Schema.Attribute.Component<'ui.button', true> &
       Schema.Attribute.Required;
     paragraph: Schema.Attribute.Text & Schema.Attribute.Required;

@@ -23,6 +23,9 @@
       "targetField": "title",
       "required": true
     },
+    "citation": {
+      "type": "text"
+    },
     "date": {
       "type": "date",
       "required": true

@@ -18,6 +18,11 @@
     "paragraph": {
       "type": "text"
     },
+    "stats": {
+      "type": "component",
+      "component": "ui.stat",
+      "repeatable": true
+    },
     "seo": {
       "type": "component",
       "component": "seo.seo-meta",

@@ -1036,6 +1036,7 @@ export interface ApiPublicationPublication extends Struct.CollectionTypeSchema {
         'resource.additional-info',
       ]
     >;
+    citation: Schema.Attribute.Text;
     cover: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
@@ -1087,6 +1088,7 @@ export interface ApiPublicationsLandingPublicationsLanding
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &
       Schema.Attribute.Required;
+    stats: Schema.Attribute.Component<'ui.stat', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Required &

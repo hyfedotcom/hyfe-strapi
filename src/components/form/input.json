@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_form_inputs",
+  "info": {
+    "displayName": "input"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "name",
+        "email",
+        "number",
+        "message",
+        "custom"
+      ]
+    },
+    "required": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "config": {}
+}

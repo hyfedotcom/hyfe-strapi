@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_form_form_containers",
+  "info": {
+    "displayName": "form_container"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "ui.benefits-list",
+      "repeatable": true
+    },
+    "form": {
+      "type": "component",
+      "component": "form.hs-form",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_form_consents",
+  "info": {
+    "displayName": "consent"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "required": {
+      "type": "boolean",
+      "required": true
+    },
+    "privacy_link": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "config": {}
+}

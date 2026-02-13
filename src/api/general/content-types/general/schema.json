@@ -16,6 +16,12 @@
       "component": "resource.form-newsletter",
       "repeatable": false,
       "required": true
+    },
+    "header": {
+      "type": "component",
+      "component": "layout.header",
+      "repeatable": false,
+      "required": true
     }
   }
 }

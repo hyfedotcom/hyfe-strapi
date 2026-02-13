@@ -35,7 +35,8 @@
         "resource.resource-feed",
         "shared.card-product-steps",
         "shared.testimonials-feed",
-        "resource.resource-feed-many"
+        "resource.resource-feed-many",
+        "form.form-container"
       ]
     },
     "seo": {

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_ui_header_banners",
+  "info": {
+    "displayName": "header_banner"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

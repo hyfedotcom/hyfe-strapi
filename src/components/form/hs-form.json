@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_form_hs_forms",
+  "info": {
+    "displayName": "hs_form"
+  },
+  "options": {},
+  "attributes": {
+    "inputs": {
+      "type": "component",
+      "component": "form.input",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    },
+    "cta_label": {
+      "type": "string",
+      "required": true
+    },
+    "cough_news_subscription": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "consent": {
+      "type": "component",
+      "component": "form.consent",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    }
+  },
+  "config": {}
+}

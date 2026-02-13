@@ -756,6 +756,8 @@ export interface ApiGeneralGeneral extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    header: Schema.Attribute.Component<'layout.header', false> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1168,6 +1170,7 @@ export interface ApiSolutionSolution extends Struct.CollectionTypeSchema {
         'shared.card-product-steps',
         'shared.testimonials-feed',
         'resource.resource-feed-many',
+        'form.form-container',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &

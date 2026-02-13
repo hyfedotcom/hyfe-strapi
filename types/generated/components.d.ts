@@ -1,5 +1,89 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface FormConsent extends Struct.ComponentSchema {
+  collectionName: 'components_form_consents';
+  info: {
+    displayName: 'consent';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    privacy_link: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    required: Schema.Attribute.Boolean & Schema.Attribute.Required;
+  };
+}
+
+export interface FormFormContainer extends Struct.ComponentSchema {
+  collectionName: 'components_form_form_containers';
+  info: {
+    displayName: 'form_container';
+  };
+  attributes: {
+    form: Schema.Attribute.Component<'form.hs-form', false> &
+      Schema.Attribute.Required;
+    list: Schema.Attribute.Component<'ui.benefits-list', true>;
+    paragraph: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface FormHsForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_hs_forms';
+  info: {
+    displayName: 'hs_form';
+  };
+  attributes: {
+    consent: Schema.Attribute.Component<'form.consent', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    cough_news_subscription: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    cta_label: Schema.Attribute.String & Schema.Attribute.Required;
+    inputs: Schema.Attribute.Component<'form.input', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
+export interface FormInput extends Struct.ComponentSchema {
+  collectionName: 'components_form_inputs';
+  info: {
+    displayName: 'input';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    required: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    type: Schema.Attribute.Enumeration<
+      ['name', 'email', 'number', 'message', 'custom']
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface LayoutHeader extends Struct.ComponentSchema {
+  collectionName: 'components_layout_headers';
+  info: {
+    displayName: 'header';
+  };
+  attributes: {
+    header_banner: Schema.Attribute.Component<'ui.header-banner', false>;
+  };
+}
+
 export interface LayoutNewsletterForm extends Struct.ComponentSchema {
   collectionName: 'components_layout_newsletter_forms';
   info: {
@@ -573,6 +657,17 @@ export interface UiCardSimple extends Struct.ComponentSchema {
   };
 }
 
+export interface UiHeaderBanner extends Struct.ComponentSchema {
+  collectionName: 'components_ui_header_banners';
+  info: {
+    displayName: 'header_banner';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface UiInsightCard extends Struct.ComponentSchema {
   collectionName: 'components_ui_insight_cards';
   info: {
@@ -630,6 +725,11 @@ export interface UiStat extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'form.consent': FormConsent;
+      'form.form-container': FormFormContainer;
+      'form.hs-form': FormHsForm;
+      'form.input': FormInput;
+      'layout.header': LayoutHeader;
       'layout.newsletter-form': LayoutNewsletterForm;
       'resource.additional-info': ResourceAdditionalInfo;
       'resource.additional-resource-link': ResourceAdditionalResourceLink;
@@ -669,6 +769,7 @@ declare module '@strapi/strapi' {
       'ui.card': UiCard;
       'ui.card-product': UiCardProduct;
       'ui.card-simple': UiCardSimple;
+      'ui.header-banner': UiHeaderBanner;
       'ui.insight-card': UiInsightCard;
       'ui.paragraph': UiParagraph;
       'ui.problem-card': UiProblemCard;

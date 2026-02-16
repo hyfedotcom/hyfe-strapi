@@ -29,6 +29,15 @@
       "required": true,
       "default": false
     },
+    "text_orientation": {
+      "type": "enumeration",
+      "required": true,
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
     "rich_text": {
       "type": "component",
       "component": "resource.rich-text",

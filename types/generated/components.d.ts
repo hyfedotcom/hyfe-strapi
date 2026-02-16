@@ -31,7 +31,7 @@ export interface FormFormContainer extends Struct.ComponentSchema {
 export interface FormHsForm extends Struct.ComponentSchema {
   collectionName: 'components_form_hs_forms';
   info: {
-    displayName: 'hs_form';
+    displayName: 'hb_form';
   };
   attributes: {
     consent: Schema.Attribute.Component<'form.consent', true> &
@@ -46,6 +46,7 @@ export interface FormHsForm extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
     cta_label: Schema.Attribute.String & Schema.Attribute.Required;
+    formId: Schema.Attribute.String & Schema.Attribute.Required;
     inputs: Schema.Attribute.Component<'form.input', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -63,13 +64,12 @@ export interface FormInput extends Struct.ComponentSchema {
     displayName: 'input';
   };
   attributes: {
+    hb_name: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     required: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
-    type: Schema.Attribute.Enumeration<
-      ['name', 'email', 'number', 'message', 'custom']
-    > &
+    type: Schema.Attribute.Enumeration<['text', 'email', 'tel', 'textarea']> &
       Schema.Attribute.Required;
   };
 }
@@ -458,6 +458,18 @@ export interface SharedFeatureCardsRight extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedHeroContent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hero_contents';
+  info: {
+    displayName: 'hero-content';
+  };
+  attributes: {
+    content: Schema.Attribute.Component<'ui.paragraph', true> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedHeroSimple extends Struct.ComponentSchema {
   collectionName: 'components_shared_hero_simples';
   info: {
@@ -755,6 +767,7 @@ declare module '@strapi/strapi' {
       'shared.cta': SharedCta;
       'shared.faq-section': SharedFaqSection;
       'shared.feature-cards-right': SharedFeatureCardsRight;
+      'shared.hero-content': SharedHeroContent;
       'shared.hero-simple': SharedHeroSimple;
       'shared.hero-stats': SharedHeroStats;
       'shared.map': SharedMap;

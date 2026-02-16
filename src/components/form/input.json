@@ -13,17 +13,20 @@
       "type": "enumeration",
       "required": true,
       "enum": [
-        "name",
+        "text",
         "email",
-        "number",
-        "message",
-        "custom"
+        "tel",
+        "textarea"
       ]
     },
     "required": {
       "type": "boolean",
       "required": true,
       "default": false
+    },
+    "hb_name": {
+      "type": "string",
+      "required": true
     }
   },
   "config": {}

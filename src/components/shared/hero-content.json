@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_hero_contents",
+  "info": {
+    "displayName": "hero-content"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "component",
+      "component": "ui.paragraph",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

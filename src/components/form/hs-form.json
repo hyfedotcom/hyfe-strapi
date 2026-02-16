@@ -1,10 +1,14 @@
 {
   "collectionName": "components_form_hs_forms",
   "info": {
-    "displayName": "hs_form"
+    "displayName": "hb_form"
   },
   "options": {},
   "attributes": {
+    "formId": {
+      "type": "string",
+      "required": true
+    },
     "inputs": {
       "type": "component",
       "component": "form.input",

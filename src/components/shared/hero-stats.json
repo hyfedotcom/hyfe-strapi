@@ -19,9 +19,31 @@
       "repeatable": true,
       "required": true
     },
+    "map_title": {
+      "type": "string",
+      "required": true
+    },
     "clinical_trials": {
       "type": "component",
       "component": "ui.stat",
+      "repeatable": false,
+      "required": true
+    },
+    "coughs": {
+      "type": "component",
+      "component": "ui.benefits-list",
+      "repeatable": false,
+      "required": true
+    },
+    "datapoints": {
+      "type": "component",
+      "component": "ui.benefits-list",
+      "repeatable": false,
+      "required": true
+    },
+    "countries": {
+      "type": "component",
+      "component": "ui.benefits-list",
       "repeatable": false,
       "required": true
     }

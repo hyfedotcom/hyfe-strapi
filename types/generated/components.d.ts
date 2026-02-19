@@ -399,7 +399,7 @@ export interface SharedCardsGrid extends Struct.ComponentSchema {
 export interface SharedContentImageSplit extends Struct.ComponentSchema {
   collectionName: 'components_shared_content_image_splits';
   info: {
-    displayName: 'content-image-split';
+    displayName: 'content_image_split';
   };
   attributes: {
     content: Schema.Attribute.Component<'ui.paragraph', true> &
@@ -461,7 +461,7 @@ export interface SharedFeatureCardsRight extends Struct.ComponentSchema {
 export interface SharedHeroContent extends Struct.ComponentSchema {
   collectionName: 'components_shared_hero_contents';
   info: {
-    displayName: 'hero-content';
+    displayName: 'hero_content';
   };
   attributes: {
     content: Schema.Attribute.Component<'ui.paragraph', true> &
@@ -473,7 +473,7 @@ export interface SharedHeroContent extends Struct.ComponentSchema {
 export interface SharedHeroSimple extends Struct.ComponentSchema {
   collectionName: 'components_shared_hero_simples';
   info: {
-    displayName: 'hero-simple';
+    displayName: 'hero_simple';
   };
   attributes: {
     ctas: Schema.Attribute.Component<'ui.button', true> &
@@ -491,8 +491,15 @@ export interface SharedHeroStats extends Struct.ComponentSchema {
   attributes: {
     clinical_trials: Schema.Attribute.Component<'ui.stat', false> &
       Schema.Attribute.Required;
+    coughs: Schema.Attribute.Component<'ui.benefits-list', false> &
+      Schema.Attribute.Required;
+    countries: Schema.Attribute.Component<'ui.benefits-list', false> &
+      Schema.Attribute.Required;
     ctas: Schema.Attribute.Component<'ui.button', true> &
       Schema.Attribute.Required;
+    datapoints: Schema.Attribute.Component<'ui.benefits-list', false> &
+      Schema.Attribute.Required;
+    map_title: Schema.Attribute.String & Schema.Attribute.Required;
     paragraph: Schema.Attribute.Text & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -526,7 +533,7 @@ export interface SharedPartners extends Struct.ComponentSchema {
 export interface SharedProblemInsightSolution extends Struct.ComponentSchema {
   collectionName: 'components_shared_problem_insight_solutions';
   info: {
-    displayName: 'problem-insight-solution';
+    displayName: 'problem_insight_solution';
   };
   attributes: {
     insight: Schema.Attribute.Component<'ui.insight-card', true> &

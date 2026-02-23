@@ -449,7 +449,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     sections: Schema.Attribute.DynamicZone<
-      ['shared.hero-content', 'shared.content-image-split']
+      ['shared.hero-content', 'shared.content-image-split', 'shared.timeline']
     >;
     seo: Schema.Attribute.Component<'seo.seo-meta', false> &
       Schema.Attribute.Required;

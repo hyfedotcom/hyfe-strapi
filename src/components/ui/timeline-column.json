@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_ui_timeline_columns",
+  "info": {
+    "displayName": "timeline_column"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "item": {
+      "type": "component",
+      "component": "ui.timeline-item",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

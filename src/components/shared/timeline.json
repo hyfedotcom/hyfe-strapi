@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_timelines",
+  "info": {
+    "displayName": "timeline"
+  },
+  "options": {},
+  "attributes": {
+    "column": {
+      "type": "component",
+      "component": "ui.timeline-column",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

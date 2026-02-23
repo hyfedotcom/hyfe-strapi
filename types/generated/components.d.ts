@@ -614,6 +614,17 @@ export interface SharedTestimonialsFeed extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTimeline extends Struct.ComponentSchema {
+  collectionName: 'components_shared_timelines';
+  info: {
+    displayName: 'timeline';
+  };
+  attributes: {
+    column: Schema.Attribute.Component<'ui.timeline-column', true> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface UiBenefitsList extends Struct.ComponentSchema {
   collectionName: 'components_ui_benefits_lists';
   info: {
@@ -741,6 +752,29 @@ export interface UiStat extends Struct.ComponentSchema {
   };
 }
 
+export interface UiTimelineColumn extends Struct.ComponentSchema {
+  collectionName: 'components_ui_timeline_columns';
+  info: {
+    displayName: 'timeline_column';
+  };
+  attributes: {
+    item: Schema.Attribute.Component<'ui.timeline-item', true> &
+      Schema.Attribute.Required;
+    year: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface UiTimelineItem extends Struct.ComponentSchema {
+  collectionName: 'components_ui_timeline_items';
+  info: {
+    displayName: 'timeline_item';
+  };
+  attributes: {
+    month_day: Schema.Attribute.String & Schema.Attribute.Required;
+    paragraph: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -784,6 +818,7 @@ declare module '@strapi/strapi' {
       'shared.resource-links': SharedResourceLinks;
       'shared.team-order': SharedTeamOrder;
       'shared.testimonials-feed': SharedTestimonialsFeed;
+      'shared.timeline': SharedTimeline;
       'ui.benefits-list': UiBenefitsList;
       'ui.button': UiButton;
       'ui.card': UiCard;
@@ -795,6 +830,8 @@ declare module '@strapi/strapi' {
       'ui.problem-card': UiProblemCard;
       'ui.solution-card': UiSolutionCard;
       'ui.stat': UiStat;
+      'ui.timeline-column': UiTimelineColumn;
+      'ui.timeline-item': UiTimelineItem;
     }
   }
 }

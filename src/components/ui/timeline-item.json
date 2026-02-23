@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_ui_timeline_items",
+  "info": {
+    "displayName": "timeline_item"
+  },
+  "options": {},
+  "attributes": {
+    "month_day": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -15,7 +15,8 @@
       "type": "dynamiczone",
       "components": [
         "shared.hero-content",
-        "shared.content-image-split"
+        "shared.content-image-split",
+        "shared.timeline"
       ]
     },
     "seo": {

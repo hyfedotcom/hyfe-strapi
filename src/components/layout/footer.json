@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "footer"
+  },
+  "options": {},
+  "attributes": {
+    "navigation_groups": {
+      "type": "component",
+      "component": "layout.footer-column",
+      "repeatable": true
+    },
+    "legal_links": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true,
+      "min": 0,
+      "max": 3
+    },
+    "copyright_text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

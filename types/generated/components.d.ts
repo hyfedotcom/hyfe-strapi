@@ -74,13 +74,112 @@ export interface FormInput extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutFooter extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'footer';
+  };
+  attributes: {
+    copyright_text: Schema.Attribute.String;
+    legal_links: Schema.Attribute.Component<'ui.button', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 0;
+        },
+        number
+      >;
+    navigation_groups: Schema.Attribute.Component<'layout.footer-column', true>;
+  };
+}
+
+export interface LayoutFooterColumn extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footer_columns';
+  info: {
+    displayName: 'footer_column';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'ui.button', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface LayoutHeader extends Struct.ComponentSchema {
   collectionName: 'components_layout_headers';
   info: {
     displayName: 'header';
   };
   attributes: {
+    company_items: Schema.Attribute.Component<'layout.header-link', true>;
+    cta: Schema.Attribute.Component<'ui.button', false>;
     header_banner: Schema.Attribute.Component<'ui.header-banner', false>;
+    product_items: Schema.Attribute.Component<
+      'layout.header-product-link',
+      true
+    >;
+    resource_quick_links: Schema.Attribute.Component<
+      'layout.header-link',
+      true
+    >;
+    resource_sections: Schema.Attribute.Component<
+      'layout.header-section',
+      true
+    >;
+    solutions_items: Schema.Attribute.Component<'layout.header-link', true>;
+  };
+}
+
+export interface LayoutHeaderLink extends Struct.ComponentSchema {
+  collectionName: 'components_layout_header_links';
+  info: {
+    displayName: 'header_link';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface LayoutHeaderProductLink extends Struct.ComponentSchema {
+  collectionName: 'components_layout_header_product_links';
+  info: {
+    displayName: 'header_product_link';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface LayoutHeaderSection extends Struct.ComponentSchema {
+  collectionName: 'components_layout_header_sections';
+  info: {
+    displayName: 'header_section';
+  };
+  attributes: {
+    all_url: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    items: Schema.Attribute.Component<'layout.header-link', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -782,7 +881,12 @@ declare module '@strapi/strapi' {
       'form.form-container': FormFormContainer;
       'form.hs-form': FormHsForm;
       'form.input': FormInput;
+      'layout.footer': LayoutFooter;
+      'layout.footer-column': LayoutFooterColumn;
       'layout.header': LayoutHeader;
+      'layout.header-link': LayoutHeaderLink;
+      'layout.header-product-link': LayoutHeaderProductLink;
+      'layout.header-section': LayoutHeaderSection;
       'layout.newsletter-form': LayoutNewsletterForm;
       'resource.additional-info': ResourceAdditionalInfo;
       'resource.additional-resource-link': ResourceAdditionalResourceLink;

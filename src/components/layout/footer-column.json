@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_footer_columns",
+  "info": {
+    "displayName": "footer_column"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "links": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    }
+  },
+  "config": {}
+}

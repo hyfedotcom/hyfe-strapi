@@ -9,6 +9,36 @@
       "type": "component",
       "component": "ui.header-banner",
       "repeatable": false
+    },
+    "product_items": {
+      "type": "component",
+      "component": "layout.header-product-link",
+      "repeatable": true
+    },
+    "solutions_items": {
+      "type": "component",
+      "component": "layout.header-link",
+      "repeatable": true
+    },
+    "resource_sections": {
+      "type": "component",
+      "component": "layout.header-section",
+      "repeatable": true
+    },
+    "resource_quick_links": {
+      "type": "component",
+      "component": "layout.header-link",
+      "repeatable": true
+    },
+    "company_items": {
+      "type": "component",
+      "component": "layout.header-link",
+      "repeatable": true
+    },
+    "cta": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false
     }
   },
   "config": {}

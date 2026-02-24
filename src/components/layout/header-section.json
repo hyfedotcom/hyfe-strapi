@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_layout_header_sections",
+  "info": {
+    "displayName": "header_section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "all_url": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "layout.header-link",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    }
+  },
+  "config": {}
+}

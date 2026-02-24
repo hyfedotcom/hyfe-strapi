@@ -22,6 +22,11 @@
       "component": "layout.header",
       "repeatable": false,
       "required": true
+    },
+    "footer": {
+      "type": "component",
+      "component": "layout.footer",
+      "repeatable": false
     }
   }
 }

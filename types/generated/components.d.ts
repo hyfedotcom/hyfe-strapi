@@ -124,10 +124,6 @@ export interface LayoutHeader extends Struct.ComponentSchema {
       'layout.header-product-link',
       true
     >;
-    resource_quick_links: Schema.Attribute.Component<
-      'layout.header-link',
-      true
-    >;
     resource_sections: Schema.Attribute.Component<
       'layout.header-section',
       true
@@ -156,8 +152,8 @@ export interface LayoutHeaderProductLink extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    icon: Schema.Attribute.Media<'images' | 'files'>;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String & Schema.Attribute.Required;
   };

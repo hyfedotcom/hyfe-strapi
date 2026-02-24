@@ -25,11 +25,6 @@
       "component": "layout.header-section",
       "repeatable": true
     },
-    "resource_quick_links": {
-      "type": "component",
-      "component": "layout.header-link",
-      "repeatable": true
-    },
     "company_items": {
       "type": "component",
       "component": "layout.header-link",

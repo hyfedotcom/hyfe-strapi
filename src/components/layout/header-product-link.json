@@ -16,17 +16,10 @@
       "type": "string",
       "required": true
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "image": {
       "type": "media",
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
